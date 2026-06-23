@@ -1,0 +1,8 @@
+eft, on s'est trompe sur la facon dont on devrait ramener le Sprint1 , il fallait creer un package utils et mettre dedans Utilitaires.java et ce qu'on met la c est la fonction pour lister toutes les classes (une fonction du genre findAllClassesIn(PACKAGENAME) et une autre fonction List<STring> FindClassWIthAnnotation qui prend les classes avec l'annotation (@Controller ici) , dans cette fonction donc on a un une variable listclass par exemple qui appelle la fonction findAllclassesIn(packageName) et apres on regarde chaque methode a l'interieur de la classe et on fait ressortir les classes qui utilisent l'annotation (@Controller ici) ,, 
+
+le sprint2 eft le but c est d'avoir une liste des methodes qui utilisent l'annotation et la classe ou on l a trouve . On utilise un urlMapping et au lieu de faire sortir un List, on utilise Map<url,Class<>>.. eft , cette Class<> c est une classe qu'on cree donc ou on a la classe en question et les methodes (cette partie j ai pas trop compris mais on a fait cela pour eviter l ambiguite du genre si on a un meme url (exemple /exemple/a et dans un autre aussi on fait quelque chose du genre , alors on aurait 2urls avec des methodes differentes .. ce qui peut etre ambigue , d'ou il a propose de faire un map au lieu d une list juste (mais je ne comprrends pas tres bien toujours pas, pourrais-tu me l'expliquer ? ) merci
+
+
+
+ah et aussi donc on change notre Sprint1,, on ajoute un <init> dans le web.xml du dossier test la et on met dans le param le nom du package et dans value les value du package 
+genre les classes ou on veut qu'on regarde
