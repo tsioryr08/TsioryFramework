@@ -6,6 +6,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import mg.tsiory.framework.annotation.Url;
+import java.lang.reflect.Method;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Utilitaires {
 
@@ -44,4 +48,19 @@ public class Utilitaires {
         }
         return result;
     }
+
+    public static Map<String, Mapping> findUrlMappings(String packageName) throws Exception {
+    Map<String, Mapping> urlMappings = new HashMap<>();
+    List<Class<?>> controllers = findClassesWithAnnotation(packageName);
+
+    for (Class<?> classe : controllers) {
+        for (Method methode : classe.getMethods()) {
+            if (methode.isAnnotationPresent(Url.class)) {
+                String url = methode.getAnnotation(Url.class).value();
+                urlMappings.put(url, new Mapping(classe, methode));
+            }
+        }
+    }
+    return urlMappings;
+}
 }
